@@ -1,0 +1,102 @@
+1. Work with branches:
+$git clone https://github.com/AnnaHavryliuk/1-git-advanced.git .
+$ git checkout -b architecture
+$ mkdir assets uploads
+$ echo >> assets/.keep
+$ echo >> uploads/.keep
+$ git add .
+$ git commit -m "add new folders and files"
+$ echo >> assets/all.js
+$ echo >> assets/css.js
+$ git add .
+$ git commit -m "add all.js and css.js to assets folder"
+$ git push origin architecture
+$ echo Test >> uploads/info.txt
+$ echo Main >> uploads/main.txt
+$ echo uploads >> .gitignore
+$ git status --ignored
+$ git add .
+$ git commit -m "add .gitignore file"
+$ git checkout master
+$ git merge architecture
+$ git branch --delete architecture
+$ git push
+$ git push origin --delete architecture
+
+2. Rebase
+$ git clone https://github.com/AnnaHavryliuk/2-git-advanced.git .
+$ git branch flowers-images
+$ echo Info >> info.txt
+$ echo Main >> main.txt
+$ git add .
+$ git commit -m "add info.txt and main.txt"
+$ git add .
+$ git commit -m "add index.html"
+$ git checkout flowers-images
+$ git rebase master
+$ git add .
+$ git commit -m "add flowers images"
+$ echo List >> list.txt
+$ git add .
+$ git commit -m "add list.txt"
+$ git checkout master
+$ git merge flowers-images
+
+3. Tag
+$ git clone https://github.com/AnnaHavryliuk/3-git-advanced.git .
+$ echo >> index.html
+$ git add .
+$ git commit -m "add index.html"
+$ echo >> main.css
+$ echo >> about.css
+$ git add .
+$ git commit -m "add main and about css files"
+$ echo >> all.js
+$ echo >> lib.js
+$ git add .
+$ git commit -m "add all.js and lib.js"
+$ tag -a v0.0.1 -m "init version of site"
+$ git log
+$ git tag init_index.html e4338d
+$ git tag
+$ git show v0.0.1
+$ git show init_index.html
+$ git push
+$ git push --tags
+
+4. Submodule
+$ git clone https://github.com/AnnaHavryliuk/4-git-advanced.git .
+$ git submodule add https://github.com/twbs/bootstrap.git bootstrap
+$ git status
+$ git commit -m "add submodule bootstrap"
+$ git push
+
+5. Git Pages
+$ git clone https://github.com/AnnaHavryliuk/5-git-advanced.git .
+$ git checkout -b gh-pages
+$ git add .
+$ git commit -m "add index.html"
+$ git push origin gh-pages
+https://annahavryliuk.github.io/5-git-advanced/
+$ git add .
+$ git commit -m "edit index.html"
+$ git push origin gh-pages
+https://annahavryliuk.github.io/5-git-advanced/
+
+6. Conflict
+$ git clone https://github.com/AnnaHavryliuk/6-git-advanced.git .
+$ git add .
+$ git commit -m "add file.txt"
+$ git branch conflict
+$ git add .
+$ git commit -m "edit file.txt in master"--
+$ git checkout conflict
+$ git add .
+$ git commit -m "edit file.txt in conflict branch"
+$ git push origin conflict
+$ git checkout master
+$ git merge conflict
+$ git merge --abort
+$ git reset HEAD^ --hard
+$ git merge conflict
+$ git push
