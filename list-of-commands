@@ -41,6 +41,7 @@ $ git add .
 $ git commit -m "add list.txt"
 $ git checkout master
 $ git merge flowers-images
+$ git push
 
 3. Tag
 $ git clone https://github.com/AnnaHavryliuk/3-git-advanced.git .
